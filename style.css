@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Neue', cursive;
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Elementos decorativos */
+.decoracao {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.decoracao-topo {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, #a2d2ff, #cdb4db, #ffc8dd);
+    top: -50px;
+    right: -50px;
+}
+
+.decoracao-topo::before,
+.decoracao-topo::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    filter: blur(50px);
+}
+
+.decoracao-topo::before {
+    background: #cdb4db;
+    top: 80px;
+    right: 100px;
+}
+
+.decoracao-topo::after {
+    background: #ffc8dd;
+    top: 120px;
+    right: 50px;
+}
+
+.decoracao-base {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(45deg, #a2d2ff, #ffc8dd);
+    bottom: -80px;
+    left: -50px;
+}
+
+.decoracao-base::before {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: #cdb4db;
+    border-radius: 50%;
+    filter: blur(50px);
+    bottom: 60px;
+    left: 80px;
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+}
+
+h1 {
+    text-align: center;
+    color: #5e548e;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#nova-tarefa {
+    flex-grow: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #5e548e;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    font-family: 'Comic Neue', cursive;
+}
+
+#nova-tarefa::placeholder {
+    color: #b8b8d1;
+}
+
+#adicionar {
+    width: 60px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255, 200, 221, 0.7);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#adicionar:hover {
+    background: rgba(255, 200, 221, 0.9);
+    transform: scale(1.05);
+}
+
+#lista-tarefas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lista-tarefas li {
+    padding: 15px;
+    margin-bottom: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    color: #5e548e;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+#lista-tarefas li:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(5px);
+}
+
+#lista-tarefas li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #ffc8dd, #cdb4db);
+    border-radius: 15px 0 0 15px;
+}
+
+#lista-tarefas li.concluida {
+    text-decoration: line-through;
+    color: #b8b8d1;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+#lista-tarefas li.concluida::after {
+    content: '✓';
+    position: absolute;
+    right: 15px;
+    color: #a2d2ff;
+    font-weight: bold;
+}
